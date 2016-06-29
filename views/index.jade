@@ -1,5 +1,24 @@
 extends layout
 
-block content
-  h1= title
-  p Welcome to #{title}
+nav(class= ['navbar', 'navbar-default'])
+    div.container-fluid
+      div.navbar-header
+        a(id='navTitle', class= ['navbar-brand', href='index.html'])
+
+div(class="container-fluid", id="corpoForm")
+  div.form-inline
+    div.form-group
+      input(type="text", class="form-control", id="desc", placeholder="Description")
+  div.form-group
+    input(type="text", class="form-control", id="amount", placeholder="Amount")
+  div.form-group
+    input(type="text", class="form-control", id="value", placeholder="Value")
+  span.btnUpdate
+    span#inputIDUpdate
+    button(class="btn btn-success", onclick="updateData();")
+      Save
+    button(class="btn btn-danger", onclick="resetForm();")
+      Cancel
+  span#btnAdd
+    button(class="btn btn-default" onclick="addData();")
+      Add

@@ -1,7 +1,55 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title= ''
+    style(type="text/css")
+      include ../public/stylesheets/bootstrap.min.css
+    link(rel='stylesheet', href='stylesheets/style.css')
   body
-    block content
+    nav.navbar.navbar-default
+      div.container-fluid
+        div.navbar-header
+          a#navTitle.navbar-brand(href='index.html')
+            | Controller List
+
+    .container-fluid#corpoForm
+      .form-inline
+        .form-group
+          input.form-control#desc(type="text", placeholder="Description")
+        .form-group
+          input.form-control#amount(type="text", placeholder="Amount")
+        .form-group
+          input.form-control#value(type="text", placeholder="Value")
+        span#btnUpdate
+          span#inputIDUpdate
+          button.btn.btn-success(onclick="updateData();")
+            | Save
+          button.btn.btn-danger(onclick="resetForm();")
+            | Cancel
+        span#btnAdd
+
+          button.btn.btn-success(onclick="addData();")
+            | Add
+
+          button.btn.btn-danger(onclick="resertForm();")
+            | Resert
+
+          button.btn.btn-default(onclick="deleteList();")
+            | Delete List
+
+      #errors
+
+      table#listTable.table
+
+    nav.navbar.navbar-default.navbar-fixed-bottom
+      .container-fluid
+        h4.text-center.text-success
+          |Total:
+          span#totalValue
+            |$ 0,00
+
+
+script(src='/javascripts/config.js')
+script(src='/javascripts/main.js')
