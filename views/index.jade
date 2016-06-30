@@ -1,24 +1,43 @@
 extends layout
 
-nav(class= ['navbar', 'navbar-default'])
-    div.container-fluid
-      div.navbar-header
-        a(id='navTitle', class= ['navbar-brand', href='index.html'])
+nav.navbar.navbar-default
+  div.container-fluid
+    div.navbar-header
+      a#navTitle.navbar-brand(href='index.html')
+        | Controller List
 
-div(class="container-fluid", id="corpoForm")
-  div.form-inline
-    div.form-group
-      input(type="text", class="form-control", id="desc", placeholder="Description")
-  div.form-group
-    input(type="text", class="form-control", id="amount", placeholder="Amount")
-  div.form-group
-    input(type="text", class="form-control", id="value", placeholder="Value")
-  span.btnUpdate
-    span#inputIDUpdate
-    button(class="btn btn-success", onclick="updateData();")
-      Save
-    button(class="btn btn-danger", onclick="resetForm();")
-      Cancel
-  span#btnAdd
-    button(class="btn btn-default" onclick="addData();")
-      Add
+.container-fluid#corpoForm
+  .form-inline
+    .form-group
+      input.form-control#desc(type="text", placeholder="Description")
+    .form-group
+      input.form-control#amount(type="text", placeholder="Amount")
+    .form-group
+      input.form-control#value(type="text", placeholder="Value")
+    span#btnUpdate
+      span#inputIDUpdate
+      button.btn.btn-success(onclick="updateData();")
+        | Save
+      button.btn.btn-danger(onclick="resetForm();")
+        | Cancel
+    span#btnAdd
+
+      button.btn.btn-success(onclick="addData();")
+        | Add
+
+      button.btn.btn-danger(onclick="resertForm();")
+        | Resert
+
+      button.btn.btn-default(onclick="deleteList();")
+        | Delete List
+
+  #errors
+
+  table#listTable.table
+
+nav.navbar.navbar-default.navbar-fixed-bottom
+  .container-fluid
+    h4.text-center.text-success
+      | Total:
+      span#totalValue
+        | $ 0,00
